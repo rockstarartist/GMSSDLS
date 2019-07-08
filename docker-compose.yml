@@ -74,6 +74,7 @@ services:
       # https://github.com/docker/swarmkit/issues/1951
       - node.name={{ .Node.Hostname }}
       - discovery.seed_hosts=elasticsearch
+      # This will need to be updated with the actual node that will be running
       - cluster.initial_master_nodes={{ ELASTICSEARCH_INITIAL_MASTER_NODES }}
       - cluster.name=gmssdls_cluster
       - ELASTIC_PASSWORD=changeme
