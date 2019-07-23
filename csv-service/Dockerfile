@@ -11,3 +11,9 @@ ARG kafka_group_id="email_service_consumer_group"
 ENV KAFKA_GROUP_ID=$kafka_group_id
 
 RUN pip install kafka-python
+
+RUN mkdir /app
+ADD csv-service.py /app/
+WORKDIR /app
+
+CMD [ "python", "csv-service.py" ]
