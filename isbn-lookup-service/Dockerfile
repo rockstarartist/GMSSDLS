@@ -11,3 +11,9 @@ ARG kafka_group_id="isbn_service_consumer_group"
 ENV KAFKA_GROUP_ID=$kafka_group_id
 
 RUN pip install kafka-python
+
+RUN mkdir /app
+ADD isbn-lookup-service.py /app/
+WORKDIR /app
+
+CMD [ "python", "isbn-lookup-service.py" ]
